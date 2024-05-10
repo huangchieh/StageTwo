@@ -2,7 +2,7 @@
 #SBATCH --time=00-01:00:00      # Job time allocation
 #SBATCH --gres=gpu:1            # Request GPUs
 #SBATCH --constraint=a100|volta # Request specific nodes
-#SBATCH --mem=64G               # Memory
+#SBATCH --mem=16G               # Memory
 #SBATCH -c 4                    # Number of cores
 #SBATCH -J test_experiments        # Job name
 #SBATCH -o log_fit.out          # Output file
@@ -21,7 +21,5 @@ echo "Running on nodes: "$SLURM_JOB_NODELIST
 
 # Run fit script
 rm -r ~/.cache # Sometimes it gets stuck if there are existing builds of cuda extensions
-#python predict_experiments.py
+python predict_experiments.py
 python plot_predictions.py
-python plot_relaxed_structures.py
-python plot_prediction_extra.py

@@ -90,6 +90,7 @@ if __name__ == "__main__":
         "cu111": 0.5,
         "au111-monolayer": 0.5,
         "au111-bilayer": 0.6,
+        "Water-Au111-Org": 0.5, # Testing
     }
     classes = [[1], [8]]
     device = "cuda"
@@ -112,9 +113,14 @@ if __name__ == "__main__":
     #############################
     # Load weight and test 
     #############################
+    #for weights in ["cu111", "Water-Au111-Org"]:
     for weights in ["cu111", "Water-Au111-Org"]:
         if weights == "Water-Au111-Org":
-            model = GraphImgNetIce(pretrained_weights=weights, device=device)
+            #
+            print('Debug:')
+            model = GraphImgNetIce(grid_z_range=(-2.9, 0.5), device=device) 
+            model.load_state_dict(torch.load(cfg['graphnet_weights']), strict=False)
+            model.posnet.load_state_dict(torch.load(cfg['posnet_weights']))
         else:
             model = GraphImgNetIce(pretrained_weights=weights, device=device)
 
