@@ -4,7 +4,7 @@
 #SBATCH --constraint=a100|volta # Request specific nodes
 #SBATCH --mem=16G               # Memory
 #SBATCH -c 4                    # Number of cores
-#SBATCH -J test_experiments        # Job name
+#SBATCH -J test_experiments_JOBSUFFIX        # Job name
 #SBATCH -o log_fit.out          # Output file
 
 # Load environment

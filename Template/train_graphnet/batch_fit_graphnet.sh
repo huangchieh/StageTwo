@@ -4,7 +4,7 @@
 #SBATCH --constraint=a100|volta # Request specific nodes
 #SBATCH --mem=64G               # Memory
 #SBATCH -c 4                    # Number of cores
-#SBATCH -J test_train_graphnet  # Job name
+#SBATCH -J train_graphnet_JOBSUFFIX  # Job name
 #SBATCH -o log_fit.out          # Output file
 
 # Load environment
@@ -21,10 +21,10 @@ echo "Running on nodes: "$SLURM_JOB_NODELIST
 rm -r ~/.cache # Sometimes it gets stuck if there are existing builds of cuda extensions
 python fit_graphnet.py \
     --run_dir ./ \
-    --data_dir /scratch/phys/project/sin/AFM_Hartree_DB/AFM_sims/striped/Water-Au111-FB/Water-Au111_FB_L50 \
-    --urls_train "Water-K-{1..10}_train_{0..31}.tar" \
-    --urls_val "Water-K-{1..5}_val_{0..7}.tar" \
-    --urls_test "Water-K-{1..10}_test_{0..7}.tar" \
+    --data_dir  DATA_DIR \
+    --urls_train "URLS_TRAIN" \
+    --urls_val "URLS_VAL" \
+    --urls_test "URLS_TEST" \
     --random_seed 0 \
     --train True \
     --test True \

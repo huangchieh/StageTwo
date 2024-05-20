@@ -192,15 +192,15 @@ if __name__ == '__main__':
     fontsize = 7
 
     params = [
-        {'pred_dir': 'predictions_Water-Au111-CycleTest', 'exp_name': 'Ying_Jiang_7'  , 'label': 'A', 'dist': 5.5, 'offset': ( 1.0,  0.0)},
-        {'pred_dir': 'predictions_Water-Au111-CycleTest',  'exp_name': 'Chen_CO'       , 'label': 'B', 'dist': 5.5, 'offset': (-1.0,  0.5)},
-        {'pred_dir': 'predictions_Water-Au111-CycleTest'  , 'exp_name': 'Ying_Jiang_1'  , 'label': 'C', 'dist': 5.1, 'offset': ( 0.0, -1.0)},
-        {'pred_dir': 'predictions_Water-Au111-CycleTest'  , 'exp_name': 'Ying_Jiang_2_1', 'label': 'D', 'dist': 5.0, 'offset': ( 1.0,  0.5)},
-        {'pred_dir': 'predictions_Water-Au111-CycleTest'  , 'exp_name': 'Ying_Jiang_2_2', 'label': 'E', 'dist': 4.9, 'offset': ( 0.0,  0.0)},
-        {'pred_dir': 'predictions_Water-Au111-CycleTest'  , 'exp_name': 'Ying_Jiang_3'  , 'label': 'F', 'dist': 4.8, 'offset': ( 0.0, -2.0)},
-        {'pred_dir': 'predictions_Water-Au111-CycleTest'  , 'exp_name': 'Ying_Jiang_5'  , 'label': 'G', 'dist': 5.0, 'offset': ( 2.0,  0.0)},
-        {'pred_dir': 'predictions_Water-Au111-CycleTest'  , 'exp_name': 'Ying_Jiang_6'  , 'label': 'H', 'dist': 4.8, 'offset': ( 1.5,  2.0)},
-        # {'pred_dir': 'predictions_au111-bilayer'  , 'exp_name': 'Ying_Jiang_4'  , 'label': 'I', 'dist': 4.8, 'offset': ( 0.0,  0.0)}
+        {'pred_dir': 'predictions_augmentation'  , 'exp_name': 'Ying_Jiang_7'  , 'label': 'A', 'dist': 5.5, 'offset': ( 1.0,  0.0)},
+        {'pred_dir': 'predictions_augmentation'  , 'exp_name': 'Chen_CO'       , 'label': 'B', 'dist': 5.5, 'offset': (-1.0,  0.5)},
+        {'pred_dir': 'predictions_augmentation'  , 'exp_name': 'Ying_Jiang_1'  , 'label': 'C', 'dist': 5.1, 'offset': ( 0.0, -1.0)},
+        {'pred_dir': 'predictions_augmentation'  , 'exp_name': 'Ying_Jiang_2_1', 'label': 'D', 'dist': 5.0, 'offset': ( 1.0,  0.5)},
+        {'pred_dir': 'predictions_augmentation'  , 'exp_name': 'Ying_Jiang_2_2', 'label': 'E', 'dist': 4.9, 'offset': ( 0.0,  0.0)},
+        {'pred_dir': 'predictions_augmentation'  , 'exp_name': 'Ying_Jiang_3'  , 'label': 'F', 'dist': 4.8, 'offset': ( 0.0, -2.0)},
+        {'pred_dir': 'predictions_augmentation'  , 'exp_name': 'Ying_Jiang_5'  , 'label': 'G', 'dist': 5.0, 'offset': ( 2.0,  0.0)},
+        {'pred_dir': 'predictions_augmentation'  , 'exp_name': 'Ying_Jiang_6'  , 'label': 'H', 'dist': 4.8, 'offset': ( 1.5,  2.0)},
+        {'pred_dir': 'predictions_augmentation'  , 'exp_name': 'Ying_Jiang_4'  , 'label': 'I', 'dist': 4.8, 'offset': ( 0.0,  0.0)}
     ]
 
     data = [get_data(p, exp_data_dir, classes) for p in params]

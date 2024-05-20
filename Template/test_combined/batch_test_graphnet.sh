@@ -4,7 +4,7 @@
 #SBATCH --constraint=a100|volta # Request specific nodes
 #SBATCH --mem=64G               # Memory
 #SBATCH -c 4                    # Number of cores
-#SBATCH -J test_graphnet        # Job name
+#SBATCH -J test_combined_JOBSUFFIX        # Job name
 #SBATCH -o log_fit.out          # Output file
 
 # Load environment

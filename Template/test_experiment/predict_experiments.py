@@ -90,7 +90,7 @@ if __name__ == "__main__":
         "cu111": 0.5,
         "au111-monolayer": 0.5,
         "au111-bilayer": 0.6,
-        "Water-Au111-CycleTest": 0.5, # Testing
+        "augmentation": 0.5, # Testing
     }
     classes = [[1], [8]]
     device = "cuda"
@@ -101,7 +101,7 @@ if __name__ == "__main__":
         "Ying_Jiang_2_1.npz",
         "Ying_Jiang_2_2.npz",
         "Ying_Jiang_3.npz",
-        # "Ying_Jiang_4.npz", # Takes a lot of video memory
+        "Ying_Jiang_4.npz", # Takes a lot of video memory
         "Ying_Jiang_5.npz",
         "Ying_Jiang_6.npz",
         "Ying_Jiang_7.npz",
@@ -113,8 +113,8 @@ if __name__ == "__main__":
     #############################
     # Load weight and test 
     #############################
-    for weights in ["Water-Au111-CycleTest"]:
-        if weights == "Water-Au111-CycleTest":
+    for weights in ["augmentation"]:
+        if weights == "augmentation":
             #
             print('Debug:')
             model = GraphImgNetIce(grid_z_range=(-2.9, 0.5), device=device) 

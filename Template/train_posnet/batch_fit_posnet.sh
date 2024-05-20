@@ -1,12 +1,12 @@
 #!/bin/bash
-#SBATCH --time=02-00:00:00      # Job time allocation
+#SBATCH --time=05-00:00:00      # Job time allocation
 #SBATCH --gres=gpu:4            # Request GPUs
 #SBATCH --constraint=a100       # Request specific nodes
 #SBATCH --mem=64G               # Memory
 #SBATCH --nodes=1               # Total number of nodes 
 #SBATCH --ntasks-per-node=1     # 1 MPI task per node, torchrun starts the tasks for each GPU
 #SBATCH -c 16                   # Number of cores per task/node
-#SBATCH -J test_train_posnet    # Job name
+#SBATCH -J train_posnet_JOBSUFFIX    # Job name
 #SBATCH -o log_fit.out          # Output file
 
 # Load environment
@@ -32,10 +32,10 @@ torchrun \
     --max_restarts 0 \
     fit_posnet.py \
         --run_dir ./ \
-        --data_dir /scratch/phys/project/sin/AFM_Hartree_DB/AFM_sims/striped/Water-Au111-FB/Water-Au111_FB_L50 \
-        --urls_train "Water-K-{1..10}_train_{0..31}.tar" \
-        --urls_val "Water-K-{1..5}_val_{0..7}.tar" \
-        --urls_test "Water-K-{1..10}_test_{0..7}.tar" \
+        --data_dir DATA_DIR \
+        --urls_train "URLS_TRAIN" \
+        --urls_val "URLS_VAL" \
+        --urls_test "URLS_TEST" \
         --random_seed 0 \
         --train True \
         --test True \
