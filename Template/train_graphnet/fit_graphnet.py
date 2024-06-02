@@ -63,7 +63,7 @@ def apply_preprocessing(batch, cfg):
     z0 = random.choice(range(0, min(5, nz_max+1-nz)))
     X = [x[:, :, :, -nz:] for x in X] if z0 == 0 else [x[:, :, :, -(nz+z0):-z0] for x in X]
 
-    atoms = [a[a[:, -1] != 79] for a in atoms]
+    atoms = [a[a[:, -1] != SUBATOMICNUMBER] for a in atoms]
     atoms = pp.top_atom_to_zero(atoms)
     xyz = atoms.copy()
     bonds = graph.find_bonds(atoms)

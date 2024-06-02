@@ -1,7 +1,7 @@
 #!/bin/bash
-#SBATCH --time=00-01:00:00      # Job time allocation
+#SBATCH --time=00-05:00:00      # Job time allocation
 #SBATCH --gres=gpu:1            # Request GPUs
-#SBATCH --constraint=a100|volta # Request specific nodes
+#SBATCH --constraint=ampere|volta # Request specific nodes
 #SBATCH --mem=16G               # Memory
 #SBATCH -c 4                    # Number of cores
 #SBATCH -J test_experiments_JOBSUFFIX        # Job name

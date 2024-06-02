@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --time=05-00:00:00      # Job time allocation
 #SBATCH --gres=gpu:4            # Request GPUs
-#SBATCH --constraint=a100       # Request specific nodes
+#SBATCH --constraint=ampere       # Request specific nodes
 #SBATCH --mem=64G               # Memory
 #SBATCH --nodes=1               # Total number of nodes 
 #SBATCH --ntasks-per-node=1     # 1 MPI task per node, torchrun starts the tasks for each GPU
@@ -11,7 +11,7 @@
 
 # Load environment
 # module load anaconda # On old triton
-module load mamba # On new triton
+module load mamba gcc # On new triton
 source activate ml-spm
 export OMP_NUM_THREADS=1
 
