@@ -9,6 +9,8 @@ from ppafm.ocl.AFMulator import AFMulator
 from mlspm.graph import MoleculeGraph
 from mlspm.utils import read_xyzs
 
+import os
+
 # # Set matplotlib font rendering to use LaTex
 # plt.rcParams.update({
 #     "text.usetex": True,
@@ -182,8 +184,9 @@ def plot_graph(ax, mol, box_borders, class_colors, scatter_size, zmin, zmax):
     ax.set_aspect('equal', 'box')
 
 if __name__ == '__main__':
-
     exp_data_dir = Path('./exp_data/')
+    recover_data_dir = Path('./rec_data/')
+    os.makedirs(recover_data_dir, exist_ok=True)
     scatter_size = 5
     zmin = -3.5
     zmax = 0.5
@@ -216,6 +219,9 @@ if __name__ == '__main__':
         plot_graph(row_axes[2], pred_mol, box_borders, class_colors, scatter_size, zmin, zmax)
         row_axes[3].imshow(sim[:, :, 0].T, origin='lower', cmap='gray')
         row_axes[4].imshow(sim[:, :, -1].T, origin='lower', cmap='gray')
+        
+        # Save recovered simulations
+        np.savez("{}/{}_rec.npz".format(recover_data_dir, params[i]['exp_name']), data=sim)
 
         # Set labels
         row_axes[0].text(-0.08, 0.5, params[i]['label'], transform=row_axes[0].transAxes,
