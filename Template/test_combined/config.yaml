@@ -12,7 +12,7 @@ classes:
 - - 1
 - - 8
 comm_backend: nccl
-data_dir: /scratch/phys/project/sin/AFM_Hartree_DB/AFM_sims/striped/Water-Au111-FB/Water-Au111_FB_L50
+data_dir: /scratch/phys/project/sin/AFM_Hartree_DB/AFM_sims/striped/Water-bilayer-FB/Water-bilayer_FB_L30
 dataset: null
 edge_cutoff: 3.0
 epochs: 10
@@ -36,9 +36,9 @@ run_dir: ./
 test: true
 timings: true
 train: true
-urls_test: Water-K-{1..10}_test_{0..7}.tar
-urls_train: Water-K-{1..10}_train_{0..31}.tar
-urls_val: Water-K-{1..5}_val_{0..7}.tar
+urls_test: Water-bilayer-K-{1..10}_test_{0..3}.tar
+urls_train: Water-bilayer-K-{1..10}_train_{0..31}.tar
+urls_val: Water-bilayer-K-{1..5}_val_{0..3}.tar
 world_size: 1
 z_lims:
 - -2.9

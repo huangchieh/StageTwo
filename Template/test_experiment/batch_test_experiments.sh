@@ -21,4 +21,3 @@ echo "Running on nodes: "$SLURM_JOB_NODELIST
 # Run fit script
 rm -r ~/.cache # Sometimes it gets stuck if there are existing builds of cuda extensions
 python predict_experiments.py
-python plot_predictions.py

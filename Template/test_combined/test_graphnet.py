@@ -264,7 +264,8 @@ if __name__ == '__main__':
     posnet_fit_dir = Path('../train_posnet')
 
     # Get config
-    config_path = Path(graphnet_fit_dir) / 'config.yaml'
+    #config_path = Path(graphnet_fit_dir) / 'config.yaml'
+    config_path ='./config.yaml'
     with open(config_path, 'r') as f:
         cfg = yaml.safe_load(f)
     

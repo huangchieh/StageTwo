@@ -185,7 +185,9 @@ def plot_graph(ax, mol, box_borders, class_colors, scatter_size, zmin, zmax):
 
 if __name__ == '__main__':
     exp_data_dir = Path('./exp_data/')
+    cexp_data_dir = Path('./cexp_data/')
     recover_data_dir = Path('./rec_data/')
+    os.makedirs(cexp_data_dir, exist_ok=True)
     os.makedirs(recover_data_dir, exist_ok=True)
     scatter_size = 5
     zmin = -3.5
@@ -220,7 +222,8 @@ if __name__ == '__main__':
         row_axes[3].imshow(sim[:, :, 0].T, origin='lower', cmap='gray')
         row_axes[4].imshow(sim[:, :, -1].T, origin='lower', cmap='gray')
         
-        # Save recovered simulations
+        # Save crop exp data and recovered simulations
+        np.savez("{}/{}_cro.npz".format(cexp_data_dir, params[i]['exp_name']), data=exp_data['data'])
         np.savez("{}/{}_rec.npz".format(recover_data_dir, params[i]['exp_name']), data=sim)
 
         # Set labels
