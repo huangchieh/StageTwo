@@ -165,7 +165,7 @@ def run(cfg):
         t0 = eval_start
 
     stats = graph.GraphStats(cfg['classes'])
-    _, test_loader = make_webDataloader(cfg, 'test')
+    _, test_loader = make_webDataloader(cfg, 'val')
     
     model.eval()
     with torch.no_grad():
