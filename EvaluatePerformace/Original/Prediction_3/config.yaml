@@ -12,7 +12,7 @@ classes:
 - - 1
 - - 8
 comm_backend: nccl
-data_dir: null 
+data_dir: null
 dataset: null
 edge_cutoff: 3.0
 epochs: 10
@@ -37,7 +37,7 @@ test: true
 timings: true
 train: true
 urls_test: null
-urls_train: null 
+urls_train: null
 urls_val: null
 world_size: 1
 z_lims:
