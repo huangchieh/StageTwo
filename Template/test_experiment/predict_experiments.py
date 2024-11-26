@@ -49,6 +49,14 @@ def apply_preprocessing(X, real_dim):
     X = X[0]
     return X
 
+def rotate_data(X):
+    rotations = {
+        0: X, 
+        90: np.rot90(X, k=1, axes=(1, 2)).copy(), # Copy to avoid negative strides issue
+        180: np.rot90(X, k=2, axes=(1, 2)).copy(),
+        270: np.rot90(X, k=3, axes=(1, 2)).copy()
+    }
+    return rotations
 
 if __name__ == "__main__":
     
@@ -134,27 +142,32 @@ if __name__ == "__main__":
             save_name = Path(exp_data_file).stem
             print(f"Experiment: {save_name}")
 
-            # Load data and run prediction
-            X = load_data(exp_data_dir / exp_data_file)
-            pred_graph, pred_grid, matches, labels, box_borders = make_prediction(model, X, match_thresholds[weights], device=device)
+            # Load data
+            X_original = load_data(exp_data_dir / exp_data_file)
 
-            # Construct xyz array from the graph
-            xyzs = np.concatenate(
-                [
-                    pred_graph[0].array(xyz=True),
-                    # Take the elements from the first entry of the element list for the predicted class
-                    np.array([classes[ind][0] for ind in pred_graph[0].array(class_index=True)[:, 0]])[:, None],
-                ],
-                axis=1,
-            )
+            # Rotate data and run predictions for each rotation
+            rotations = rotate_data(X_original)
+            for angle, X in rotations.items(): 
+                print(f"Angle: {angle}")
+                pred_graph, pred_grid, matches, labels, box_borders = make_prediction(model, X, match_thresholds[weights], device=device)
 
-            # Save atom positions
-            utils.write_to_xyz(xyzs, outfile=out_dir / f"{save_name}_mol.xyz", verbose=0)
+                # Construct xyz array from the graph
+                xyzs = np.concatenate(
+                    [
+                        pred_graph[0].array(xyz=True),
+                        # Take the elements from the first entry of the element list for the predicted class
+                        np.array([classes[ind][0] for ind in pred_graph[0].array(class_index=True)[:, 0]])[:, None],
+                    ],
+                    axis=1,
+                )
 
-            # Save bond information
-            with open(out_dir / f"{save_name}_bonds.txt", "w") as f:
-                for b in pred_graph[0].bonds:
-                    f.write(f"{b[0]} {b[1]}\n")
+                # Save atom positions
+                utils.write_to_xyz(xyzs, outfile=out_dir / f"{save_name}_d{angle}_mol.xyz", verbose=0)
+
+                # Save bond information
+                with open(out_dir / f"{save_name}_d{angle}_bonds.txt", "w") as f:
+                    for b in pred_graph[0].bonds:
+                        f.write(f"{b[0]} {b[1]}\n")
 
         # Minimize memory usage
         del model
