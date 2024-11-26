@@ -1,0 +1,46 @@
+afm_cutoff: 1.125
+avg_best_epochs: 10
+batch_size: 16
+box_res:
+- 0.125
+- 0.125
+- 0.1
+class_colors:
+- w
+- r
+classes:
+- - 1
+- - 8
+comm_backend: nccl
+data_dir: /scratch/phys/project/sin/AFM_Hartree_DB/AFM_sims/striped/Water-bilayer-FB/Water-bilayer_FB_Ref
+dataset: null
+edge_cutoff: 3.0
+epochs: 10
+graphnet_weights: ../train_graphnet/best_model.pth
+load_weights: ''
+loss_labels:
+- NLL (Node)
+- NLL (Edge)
+loss_weights:
+- 1.0
+- 1.0
+lr: 0.001
+num_workers: 16
+peak_std: 0.2
+posnet_weights: ../train_posnet/best_model.pth
+pred_batches: 3
+predict: true
+print_interval: 10
+random_seed: 0
+run_dir: ./
+test: true
+timings: true
+train: true
+urls_test: Water-bilayer-K-{1..10}_test_{0..3}.tar
+urls_train: Water-bilayer-K-{1..10}_train_{0..31}.tar
+urls_val: Water-bilayer-K-{1..5}_val_{0..3}.tar
+world_size: 1
+z_lims:
+- -2.9
+- 0.5
+zmin: -2.5
