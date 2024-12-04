@@ -7,11 +7,9 @@ do # Loop 0 ----Start
     # Loop 1  ----Start
     for CYCLEGANDATA in PPAFM2Exp_CoAll # Loop G model trained on different datasets
     do
-	#for LAMBDA1 in 0 10 20 30 40 50 60
-	for LAMBDA1 in 0
+	for LAMBDA1 in 0 10 20 30 40 50 60 
 	do
-		#for LAMBDA2 in 0 0.1 1 10
-		for LAMBDA2 in 0 
+		for LAMBDA2 in 0 0.1 1 10
 		do
 			for EPOCH in latest # Loop G model trained on different epoc
 			do
@@ -75,14 +73,13 @@ do # Loop 0 ----Start
     				    }
     				
     				# 1. Train posnet
-    				#jobid1=$(run_batch train_posnet batch_fit_posnet.sh None)
+    				jobid1=$(run_batch train_posnet batch_fit_posnet.sh None)
     				# 2. Train graphnet 
-    				#jobid2=$(run_batch train_graphnet batch_fit_graphnet.sh None)
+    				jobid2=$(run_batch train_graphnet batch_fit_graphnet.sh None)
     				# 3. Test combined 
-    				#jobid3=$(run_batch test_combined batch_test_graphnet.sh $jobid1:$jobid2)
+    				jobid3=$(run_batch test_combined batch_test_graphnet.sh $jobid1:$jobid2)
     				# 4. Test experiments
-    				#jobid4=$(run_batch test_experiment batch_test_experiments.sh $jobid1:$jobid2)
-    				jobid4=$(run_batch test_experiment batch_test_experiments.sh None)
+    				jobid4=$(run_batch test_experiment batch_test_experiments.sh $jobid1:$jobid2)
     				cd .. # Exit case
     				#done # Loop 1 ----End
 			done # Loop EPOCH ----End
