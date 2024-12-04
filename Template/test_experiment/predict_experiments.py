@@ -151,23 +151,26 @@ if __name__ == "__main__":
                 print(f"Angle: {angle}")
                 pred_graph, pred_grid, matches, labels, box_borders = make_prediction(model, X, match_thresholds[weights], device=device)
 
-                # Construct xyz array from the graph
-                xyzs = np.concatenate(
-                    [
-                        pred_graph[0].array(xyz=True),
-                        # Take the elements from the first entry of the element list for the predicted class
-                        np.array([classes[ind][0] for ind in pred_graph[0].array(class_index=True)[:, 0]])[:, None],
-                    ],
-                    axis=1,
-                )
+                try:
+                    # Construct xyz array from the graph
+                    xyzs = np.concatenate(
+                        [
+                            pred_graph[0].array(xyz=True),
+                            # Take the elements from the first entry of the element list for the predicted class
+                            np.array([classes[ind][0] for ind in pred_graph[0].array(class_index=True)[:, 0]])[:, None],
+                        ],
+                        axis=1,
+                    )
 
-                # Save atom positions
-                utils.write_to_xyz(xyzs, outfile=out_dir / f"{save_name}_d{angle}_mol.xyz", verbose=0)
+                    # Save atom positions
+                    utils.write_to_xyz(xyzs, outfile=out_dir / f"{save_name}_d{angle}_mol.xyz", verbose=0)
 
-                # Save bond information
-                with open(out_dir / f"{save_name}_d{angle}_bonds.txt", "w") as f:
-                    for b in pred_graph[0].bonds:
-                        f.write(f"{b[0]} {b[1]}\n")
+                    # Save bond information
+                    with open(out_dir / f"{save_name}_d{angle}_bonds.txt", "w") as f:
+                        for b in pred_graph[0].bonds:
+                            f.write(f"{b[0]} {b[1]}\n")
+                except:
+                    print('No atoms found')
 
         # Minimize memory usage
         del model
