@@ -20,5 +20,6 @@ echo "Running on nodes: "$SLURM_JOB_NODELIST
 
 # Run fit script
 rm -r ~/.cache # Sometimes it gets stuck if there are existing builds of cuda extensions
+# Prepare the data_dir in config.yaml
+sed -i "s/Water-bilayer_FB_L30/CASE/g" config.yaml
 python test_graphnet.py
-python plot_RDF_.py predictions
