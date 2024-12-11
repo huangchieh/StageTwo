@@ -132,7 +132,7 @@ if __name__ == "__main__":
             model = GraphImgNetIce(pretrained_weights=weights, device=device)
 
         # Create out dir
-        out_dir = Path(f"predictions_{weights}")
+        out_dir = Path(f"predictions")
         out_dir.mkdir(exist_ok=True)
 
         print(f"Model: {weights}")
