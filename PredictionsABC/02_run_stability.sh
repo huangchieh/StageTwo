@@ -1,7 +1,7 @@
 # This script is used to organize the structure predictions
 
 # Create a folder to store the structure predictions
-outFolder=BatchOutStructuesStabilityTest
+outFolder=BatchOutStructuresStabilityTest
 mkdir -p $outFolder
 
 declare -a model_list  # Declare an array to hold the models
