@@ -7,12 +7,11 @@ do # Loop 0 ----Start
     # Loop 1  ----Start
     for CYCLEGANDATA in PPAFM2Exp_CoAll # Loop G model trained on different datasets
     do
-	for LAMBDA1 in 10 
+	for LAMBDA1 in 20 
 	do
-		for LAMBDA2 in 10
+		for LAMBDA2 in 1
 		do
-			#for copy in 0 
-			for copy in 1 2 3 4 5 6 7 8 9
+			for copy in 0 1 2 3 4 5 6 7 8 9
 			do 
 				for EPOCH in latest # Loop G model trained on different epoc
 				do
