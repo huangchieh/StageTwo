@@ -9,6 +9,7 @@
 
 # Load environment
 # module load anaconda
+module load triton/2024.1-gcc
 module load mamba gcc
 source activate ml-spm
 export OMP_NUM_THREADS=1
