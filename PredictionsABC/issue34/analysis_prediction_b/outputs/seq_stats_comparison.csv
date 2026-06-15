@@ -1,0 +1,9 @@
+model,model_latex,metric,subset_mean_from_predictions_folder,full_mean_from_seq_stats
+F_U,$F_{\mathcal{U}}$,hausdorff,4.151075454316379,4.1580646569000015
+F_U,$F_{\mathcal{U}}$,matching_distance,0.2614562381641168,0.25457010060406104
+F_Vbar,$F_{\overline{\mathcal{V}}}$,hausdorff,4.41408648609915,4.425393445099963
+F_Vbar,$F_{\overline{\mathcal{V}}}$,matching_distance,0.2316819402290335,0.22932479936127204
+F_Vtilde,$F_{\widetilde{\mathcal{V}}}$,hausdorff,3.058749506297111,3.0974779523766416
+F_Vtilde,$F_{\widetilde{\mathcal{V}}}$,matching_distance,0.19858366022603866,0.19827211731668698
+F_Vdagger,$F_{\mathcal{V}^{\dagger}}$,hausdorff,3.2062798255325493,3.122213688055188
+F_Vdagger,$F_{\mathcal{V}^{\dagger}}$,matching_distance,0.19609347109874828,0.19870168646841704
