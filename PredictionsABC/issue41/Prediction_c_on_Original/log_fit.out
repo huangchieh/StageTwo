@@ -1,4 +1,4 @@
-Job ID: 18799054
+Job ID: 18799087
 Job Name: Water-bilayer_FB_Ref_Prediction_c
 Running on nodes: dgx22
 /scratch/work/huangj4/.conda_envs/ml-spm/lib/python3.11/site-packages/torch/utils/cpp_extension.py:1967: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
@@ -27,12 +27,22 @@ Angle: 0
 Angle: 90
 Angle: 180
 Angle: 270
+Experiment: Ying_Jiang_4
+Angle: 0
+Angle: 90
+Angle: 180
+Angle: 270
 Experiment: Ying_Jiang_5
 Angle: 0
 Angle: 90
 Angle: 180
 Angle: 270
 Experiment: Ying_Jiang_6
+Angle: 0
+Angle: 90
+Angle: 180
+Angle: 270
+Experiment: Ying_Jiang_7
 Angle: 0
 Angle: 90
 Angle: 180
