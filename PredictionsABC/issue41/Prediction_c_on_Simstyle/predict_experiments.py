@@ -109,14 +109,18 @@ if __name__ == "__main__":
         "L1_20_L2_1Ying_Jiang_2_1.npz",
         "L1_20_L2_1Ying_Jiang_2_2.npz",
         "L1_20_L2_1Ying_Jiang_3.npz",
+        "L1_20_L2_1Ying_Jiang_4.npz",
         "L1_20_L2_1Ying_Jiang_5.npz",
         "L1_20_L2_1Ying_Jiang_6.npz",
+        "L1_20_L2_1Ying_Jiang_7.npz",
         "L1_50_L2_0.5Ying_Jiang_1.npz",
         "L1_50_L2_0.5Ying_Jiang_2_1.npz",
         "L1_50_L2_0.5Ying_Jiang_2_2.npz",
         "L1_50_L2_0.5Ying_Jiang_3.npz",
+        "L1_50_L2_0.5Ying_Jiang_4.npz",
         "L1_50_L2_0.5Ying_Jiang_5.npz",
         "L1_50_L2_0.5Ying_Jiang_6.npz",
+        "L1_50_L2_0.5Ying_Jiang_7.npz",
     ]
 
     # Download experimental dataset
